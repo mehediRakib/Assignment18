@@ -46,19 +46,6 @@ router.get('/CartList',Authverification,cartListController.cartList);
 
 
 // Invoice & Payment
-router.get('/CreateInvoice',Authverification,InvoiceController.CreateInvoice)
-
-router.get('/InvoiceList',Authverification,InvoiceController.InvoiceList)
-router.get('/InvoiceProductList/:invoice_id',Authverification,InvoiceController.InvoiceProductList)
-
-
-
-
-
-router.post('/PaymentSuccess/:trxID',Authverification.PaymentSuccess)
-router.post('/PaymentCancel/:trxID',Authverification.PaymentCancel)
-router.post('/PaymentFail/:trxID',Authverification.PaymentFail)
-router.post('/PaymentIPN/:trxID',Authverification.PaymentIPN)
 
 
 

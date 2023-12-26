@@ -17,5 +17,5 @@ exports.cartList=async (req,res)=>{
 }
 
 exports.updateList=async (req,res)=>{
-    let data
+
 }
