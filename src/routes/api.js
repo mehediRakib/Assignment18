@@ -6,6 +6,7 @@ const userController=require('../controllers/userController');
 const productController=require('../controllers/ProductController');
 const wishListController=require('../controllers/WishListController');
 const cartListController=require('../controllers/cartListController');
+const InvoiceController=require('../controllers/invoiceController');
 
 const Authverification=require('../middleware/AuthVerification');
 
@@ -42,6 +43,22 @@ router.get('/WishList',Authverification,wishListController.wishList);
 router.post('/SaveCartList',Authverification,cartListController.saveCartList);
 router.post('/RemoveCartList',Authverification,cartListController.removeCartList);
 router.get('/CartList',Authverification,cartListController.cartList);
+
+
+// Invoice & Payment
+router.get('/CreateInvoice',Authverification,InvoiceController.CreateInvoice)
+
+router.get('/InvoiceList',Authverification,InvoiceController.InvoiceList)
+router.get('/InvoiceProductList/:invoice_id',Authverification,InvoiceController.InvoiceProductList)
+
+
+
+
+
+router.post('/PaymentSuccess/:trxID',Authverification.PaymentSuccess)
+router.post('/PaymentCancel/:trxID',Authverification.PaymentCancel)
+router.post('/PaymentFail/:trxID',Authverification.PaymentFail)
+router.post('/PaymentIPN/:trxID',Authverification.PaymentIPN)
 
 
 
